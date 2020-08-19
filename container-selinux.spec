@@ -2,7 +2,7 @@
 
 # container-selinux
 %global git0 https://github.com/projectatomic/container-selinux
-%global commit0 d7a3f33548ae5c5912006dc2b14270d650f5e52f
+%global commit0 988431700370bf7f554ab6507c836a9aa19e47ff
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 # container-selinux stuff (prefix with ds_ for version/release etc.)
@@ -26,8 +26,8 @@
 
 Name: container-selinux
 Epoch: 2
-Version: 2.73
-Release: 3.git%{shortcommit0}
+Version: 2.138.0
+Release: 1
 License: GPLv2
 URL: %{git0}
 Summary: SELinux policies for container runtimes
@@ -110,7 +110,10 @@ fi
 %{_datadir}/selinux/*
 
 %changelog
-* Thu Sep 14 2019 openEuler Buildteam <buildteam@openeuler.org> - 2.73-3
+* Tue Sep 01 2020 openEuler Buildteam <buildteam@openeuler.org> - 2.138.0-1
+- Update container-selinux to v2.138.0-1
+
+* Sat Sep 14 2019 openEuler Buildteam <buildteam@openeuler.org> - 2.73-3
 - Package init
 
 * Sat Sep 22 2018 Dan Walsh <dwalsh@fedoraproject.org> - 2.73-2
