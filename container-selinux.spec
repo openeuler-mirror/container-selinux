@@ -27,13 +27,12 @@
 Name: container-selinux
 Epoch: 2
 Version: 2.138
-Release: 3
+Release: 4
 License: GPLv2
 URL: %{git0}
 Summary: SELinux policies for container runtimes
 Source0: %{git0}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 BuildArch: noarch
-BuildRequires: git
 BuildRequires: pkgconfig(systemd)
 BuildRequires: selinux-policy >= %{selinux_policyver}
 BuildRequires: selinux-policy-devel >= %{selinux_policyver}
@@ -52,7 +51,7 @@ Provides: docker-selinux = %{epoch}:%{version}-%{release}
 SELinux policy modules for use with container runtimes.
 
 %prep
-%autosetup -Sgit -n %{name}-%{commit0}
+%autosetup -n %{name}-%{commit0} -p1
 
 %build
 make
@@ -110,6 +109,9 @@ fi
 %{_datadir}/selinux/*
 
 %changelog
+* Wed Aug 11 2021 chenyanpanHW <chenyanpan@huawei.com> - 2.138-4
+- DESC: delete -Sgit from %autosetup, and delete BuildRequires git
+
 * Mon Dec 14 2020 openEuler Buildteam <buildteam@openeuler.org> - 2.138-2
 - Update container-selinux spec
 
