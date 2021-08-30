@@ -27,12 +27,15 @@
 Name: container-selinux
 Epoch: 2
 Version: 2.138
-Release: 3
+Release: 4
 License: GPLv2
 URL: %{git0}
 Summary: SELinux policies for container runtimes
 Source0: %{git0}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 BuildArch: noarch
+
+Patch1: 0001-systemd_dbus_chat_resolved-has-been-deprecated-use-s.patch
+
 BuildRequires: git
 BuildRequires: pkgconfig(systemd)
 BuildRequires: selinux-policy >= %{selinux_policyver}
@@ -110,6 +113,9 @@ fi
 %{_datadir}/selinux/*
 
 %changelog
+* Mon Aug 30 2021 wujing <wujing50@huawei.com> - 2.138-4
+- DESC: systemd_dbus_chat_resolved has been deprecated, use systemd_chat_resolved instead
+
 * Mon Dec 14 2020 openEuler Buildteam <buildteam@openeuler.org> - 2.138-2
 - Update container-selinux spec
 
