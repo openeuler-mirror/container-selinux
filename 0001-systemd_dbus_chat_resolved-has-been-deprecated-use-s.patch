@@ -1,0 +1,27 @@
+From 2ab60ecaf03083775312e49a1c3cd98a8cb3eb46 Mon Sep 17 00:00:00 2001
+From: wujing <wujing50@huawei.com>
+Date: Mon, 30 Aug 2021 11:11:00 +0800
+Subject: [PATCH] systemd_dbus_chat_resolved has been deprecated, use
+ systemd_chat_resolved instead
+
+Signed-off-by: wujing <wujing50@huawei.com>
+---
+ container.te | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/container.te b/container.te
+index d17e4fe..63c5379 100644
+--- a/container.te
++++ b/container.te
+@@ -427,7 +427,7 @@ modutils_domtrans_kmod(container_runtime_domain)
+ systemd_status_all_unit_files(container_runtime_domain)
+ systemd_start_systemd_services(container_runtime_domain)
+ systemd_dbus_chat_logind(container_runtime_domain)
+-systemd_dbus_chat_resolved(container_runtime_domain)
++systemd_chat_resolved(container_runtime_domain)
+ 
+ userdom_stream_connect(container_runtime_domain)
+ userdom_search_user_home_content(container_runtime_domain)
+-- 
+2.31.1
+
